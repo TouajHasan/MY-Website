@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directory Brute-Forcing Tool User Manual</title>
+    <style>
+        body {
+            background-color: #121212; /* Black background */
+            color: #e0e0e0; /* Light colored text */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 180vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            background-color: #1e1e1e; /* Dark background */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 255, 0, 0.5); /* Green shadow */
+            transition: transform 0.3s; /* Animation */
+        }
+
+        .container:hover {
+            transform: scale(1.02); /* Hover effect */
+        }
+
+        h1, h2 {
+            color: #00ff00; /* Green text */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow */
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            text-align: left; /* Bullet points aligned */
+        }
+
+        code {
+            background-color: #333333; /* Code background */
+            color: #00ff00; /* Code text */
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace; /* Code font */
+            display: inline-block; /* Make code block inline */
+        }
+
+        strong {
+            color: #00ff00; /* Green text */
+        }
+
+        p {
+            line-height: 1.6; /* Increase spacing between paragraphs */
+        }
+
+        /* Image placeholder style */
+        .image-placeholder {
+            background-color: #444444; /* Placeholder background */
+            border: 2px dashed #00ff00; /* Dashed border */
+            color: #00ff00; /* Placeholder text color */
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        /* Button style */
+        .copy-button {
+            background-color: #00ff00; /* Green background */
+            color: #121212; /* Black text */
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 10px; /* Spacing between button and text */
+        }
+
+        .copy-button:hover {
+            background-color: #00cc00; /* Darker green on hover */
+        }
+
+        /* Style for images */
+        img {
+            max-width: 100%; /* Responsive image */
+            height: auto;
+            border-radius: 8px; /* Rounded corners */
+            margin: 20px 0; /* Spacing around the image */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Directory Brute-Forcing Tool User Manual</h1>
+
+        <!-- Image placeholder for user manual cover or relevant image -->
+        <img src="path/to/your/image.jpg" alt="Directory Brute-Forcing Tool" />
+
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Multithreading:</strong> Perform concurrent requests to speed up the brute-forcing process.</li>
+            <li><strong>Customizable Status Codes:</strong> Specify which HTTP status codes to match.</li>
+            <li><strong>Progress Saving:</strong> Save the progress of completed words to resume later.</li>
+            <li><strong>Output Logging:</strong> Save discovered URLs and log the activity.</li>
+            <li><strong>URL Validation:</strong> Check if the provided URL is in the correct format.</li>
+            <li><strong>Case Transformation:</strong> Transform words to uppercase, lowercase, or capitalized form.</li>
+        </ul>
+
+        <h2>Introduction</h2>
+        <p>This tool is designed for directory brute-forcing, allowing users to discover hidden paths on a web server. It uses multithreading to enhance performance and supports various options for customization.</p>
+        
+        <h2>Requirements</h2>
+        <ul>
+            <li>Python 3.x</li>
+            <li>Requests library</li>
+            <li>Access to a terminal or command prompt</li>
+        </ul>
+
+        <h2>Installation</h2>
+        <ol>
+            <li>Ensure Python 3.x is installed on your system.</li>
+            <li>Install the Requests library if it's not already installed:<br>
+                <code>pip install requests</code>
+            </li>
+        </ol>
+
+        <h2>Usage</h2>
+        <p>Run the tool using the following command format:</p>
+        <code>python brute_force.py -u &lt;TARGET_URL&gt; -w &lt;WORDLIST_PATH&gt; [OPTIONS]</code>
+
+        <h2>Arguments</h2>
+        <ul>
+            <li><code>-u, --url</code> (required): The target URL where 'THS' indicates the position to brute-force.</li>
+            <li><code>-w, --wordlist</code> (required): Path to the wordlist file containing potential directories/files.</li>
+            <li><code>-t, --threads</code> (optional): Number of threads to use (default: 30).</li>
+            <li><code>-mc, --match-codes</code> (optional): Comma-separated list of HTTP status codes to match (default: <code>200,204,301,302,307,403,500,502,503</code>).</li>
+            <li><code>--log</code> (optional): Path to a log file where the activity will be recorded.</li>
+            <li><code>-r, --resume</code> (optional): Resume scanning from the last completed word.</li>
+            <li><code>--suffixes</code> (optional): Add custom suffixes to all wordlist entries (comma-separated).</li>
+            <li><code>-U, --uppercase</code> (optional): Convert wordlist entries to uppercase.</li>
+            <li><code>-L, --lowercase</code> (optional): Convert wordlist entries to lowercase.</li>
+            <li><code>-C, --capital</code> (optional): Capitalize the first letter of each word in the wordlist.</li>
+        </ul>
+
+        <h2>Example Commands</h2>
+        <ol>
+            <li>
+                <strong>Basic Usage:</strong>
+                <code>python brute_force.py -u http://example.com/THS -w wordlist.txt</code>
+                <button class="copy-button" onclick="copyToClipboard('python brute_force.py -u http://example.com/THS -w wordlist.txt')">Copy</button>
+            </li>
+            <li>
+                <strong>Using Custom Status Codes:</strong>
+                <code>python brute_force.py -u http://example.com/THS -w wordlist.txt -mc 200,403</code>
+                <button class="copy-button" onclick="copyToClipboard('python brute_force.py -u http://example.com/THS -w wordlist.txt -mc 200,403')">Copy</button>
+            </li>
+            <li>
+                <strong>Using Multithreading:</strong>
+                <code>python brute_force.py -u http://example.com/THS -w wordlist.txt -t 50</code>
+                <button class="copy-button" onclick="copyToClipboard('python brute_force.py -u http://example.com/THS -w wordlist.txt -t 50')">Copy</button>
+            </li>
+            <li>
+                <strong>Resume Previous Scan:</strong>
+                <code>python brute_force.py -u http://example.com/THS -w wordlist.txt -r</code>
+                <button class="copy-button" onclick="copyToClipboard('python brute_force.py -u http://example.com/THS -w wordlist.txt -r')">Copy</button>
+            </li>
+        </ol>
+
+        <h2>Output</h2>
+        <p>The tool will display results in the terminal and save found URLs to the specified log file if the <code>--log</code> option is provided. The status codes matched will also be displayed in the output.</p>
+
+        <h2>License</h2>
+        <p>This tool is open-source and free to use. Please credit the original author if you modify and distribute it.</p>
+
+        <h2>Contact</h2>
+        <p>If you have any questions or feedback, feel free to reach out via email: <a href="mailto:TouajHasan.pentester@gmail.com">TouajHasan.pentester@gmail.com</a></p>
+
+        <h2>PICTURE</h2>
+        <img src="image/Burefource1.png" alt="">
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('Copied to clipboard: ' + text);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
