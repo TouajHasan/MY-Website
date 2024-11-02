@@ -2,282 +2,285 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Touaj Hasan Portfolio</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Responsive Portfolio Website Design</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <style>
-        /* General Styles */
-        body {
+        * {
+            box-sizing: border-box;
+            padding: 0;
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: poppins, sans-serif;
+            text-decoration: none;
+        }
+        body {
             overflow-x: hidden;
-            background-color: black; /* Changed background to black */
-            color: #fff; /* Default text color to white for better contrast */
         }
-
-        /* Header Styles */
-        header {
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 15px 0;
-            position: fixed;
+        .hero-header {
             width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+            height: 100%;
+            min-height: 100vh;
+            background: #222;
         }
-
-        .navbar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
+        .wrapper {
+            width: 1280px;
+            max-width: 95%;
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        .logo h1 {
-            margin: 0;
-            font-size: 1.8em;
-            color: #bb0404;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        header {
+            padding: 40px 0 30px;
             display: flex;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 20px;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        nav ul li a:hover {
-            background: linear-gradient(45deg, #ff6b6b, #f06595);
-            border-radius: 5px;
-            transform: scale(1.1);
-        }
-
-        /* Home Section */
-        .home {
-            background: rgba(0, 0, 0, 0.8); /* Slightly transparent black background */
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            margin-top: 70px; /* To avoid overlap with fixed header */
-        }
-
-        .home-content {
-            display: flex;
-            align-items: center;
             justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            align-items: center;
+            flex-wrap: wrap;
         }
-
-        .text-container {
-            flex: 1;
-            margin-right: 20px;
-        }
-
-        .text-container h1 {
-            font-size: 3em;
-        }
-
-        .text-container p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #f06595;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .btn:hover {
-            background: #ff6b6b;
-            transform: translateY(-2px);
-        }
-
-        .image-container {
-            flex: 1;
-            display: flex;
+        .logo {
+            display: inline-flex;
             justify-content: center;
+            align-items: center;
         }
-
-        .image-container img {
+        .logo i {
+            height: 45px;
+            width: 45px;
+            background-color: #007ced;
             border-radius: 50%;
-            max-width: 250px;
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        /* Footer Styles */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
             color: #fff;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            font-weight: 700;
+            font-size: 1.5rem;
+            padding: 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            text-align: center;
         }
-
-
-         /* Butterfly animation */
-         .butterfly {
+        .logo .logo-text {
+            font-size: 24px;
+            font-weight: 500;
+            color: #fff;
+        }
+        nav .togglebtn {
+            width: 35px;
+            height: 35px;
             position: absolute;
-            width: 50px; /* Size of the butterfly */
-            height: 50px; /* Size of the butterfly */
-            background: radial-gradient(circle, #ff69b4, #ff1493); /* Initial gradient */
-            border-radius: 50%; /* Make it round */
-            opacity: 0.9; /* Slightly more opaque */
-            transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth animation */
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5); /* Glow effect */
-            animation: colorChange 3s infinite alternate; /* Color change animation */
+            top: 45px;
+            right: 3%;
+            z-index: 5;
+            cursor: pointer;
+            display: none;
         }
-
-        @keyframes colorChange {
-            0% { background: radial-gradient(circle, #ff69b4, #ff1493); }
-            25% { background: radial-gradient(circle, #ffdc00, #ff8c00); }
-            50% { background: radial-gradient(circle, #00ff7f, #008000); }
-            75% { background: radial-gradient(circle, #1e90ff, #0000ff); }
-            100% { background: radial-gradient(circle, #ff69b4, #ff1493); }
-        }
-
-        /* Butterfly-container style */
-        #butterfly-container {
-            position: fixed;
-            top: 0;
-            left: 0;
+        nav .togglebtn span {
+            display: block;
+            background-color: #007ced;
+            margin: 5px 0px;
             width: 100%;
+            height: 3px;
+            transition: 0.3s;
+            transition-property: transform, opacity;
+        }
+        nav .navlinks {
+            list-style-type: none;
+        }
+        nav .navlinks li {
+            display: inline-block;
+        }
+        nav .navlinks li a {
+            color: #e5e5e5;
+            margin-right: 2.5rem;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 4rem;
+        }
+        .container .hero-pic {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 15px solid #444;
+            box-shadow: 5px 7px 25px rgba(0, 0, 0, 0.5);
+        }
+        .hero-pic img {
             height: 100%;
-            pointer-events: none;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1)); /* Soft gradient */
-            overflow: hidden; /* Prevent overflow */
+            width: 100%;
+            transition: 0.5s;
+        }
+        .hero-pic img:hover {
+            transform: scale(1.2);
+        }
+        .hero-text {
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+        .hero-text h5 {
+            color: #e5e5e5;
+            font-size: 14px;
+        }
+        .hero-text h5 span {
+            color: #007ced;
+            font-size: 16px;
+        }
+        .hero-text h1 {
+            color: #007ced;
+            font-size: 3rem;
+        }
+        .hero-text p {
+            color: #e5e5e5;
+        }
+        .btn-group {
+            margin: 45px 0;
+        }
+        .btn-group .btn {
+            border-color: #d5d5d5;
+            color: #fff;
+            background-color: #333;
+            padding: 12px 25px;
+            margin: 5px 0px;
+            margin-right: 7px;
+            border-radius: 30px;
+            border: 2px solid #e5e5e5;
+            box-shadow: 0 10px 10px -8px rgb(0 0 0 / 78%);
+        }
+        .btn.active {
+            border-color: #007ced;
+        }
+        .hero-text .social i {
+            color: #e5e5e5;
+            font-size: 18px;
+            margin-right: 10px;
+            transition: 0.5s;
+        }
+        .hero-text .social i:hover {
+            color: #007ced;
+            transform: rotate(360deg);
+        }
+        /* Responsive design */
+        @media (max-width: 930px) {
+            nav .togglebtn {
+                display: initial;
+            }
+            .click {
+                top: 45px;
+            }
+            .click span {
+                position: absolute;
+                margin-top: 12px
+            }
+            .click span:first-child {
+                transform: rotate(-40deg);
+            }
+            .click span:nth-child(2) {
+                opacity: 0;
+                margin: 0;
+            }
+            .click span:last-child {
+                transform: rotate(45deg);
+                top: 0;
+            }
+            nav .navlinks {
+                position: absolute;
+                top: 110px;
+                right: -100%;
+                bottom: 0;
+                width: 60%;
+                height: 100vh;
+                background-color: #222;
+                z-index: 3;
+                box-shadow: 5px 13px 30px rgba(0, 0, 0, 0.1);
+                transition: 0.5s;
+                padding: 25px 0px;
+            }
+            nav .navlinks li {
+                display: block;
+            }
+            nav .navlinks li a {
+                display: block;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+            nav .navlinks.open {
+                right: 0;
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding-top: 2rem
+            }
+            .hero-text {
+                padding: 40px 0px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="navbar-container">
-            <div class="logo">
-                <h1><span class="animated-logo">SHOUNTO</span></h1>
+    <div class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <i class="fa-solid fa-t"></i>
+                    <div class="logo-text">Touaj Hasan</div>
+                </div>
+                <nav>
+                    <div class="togglebtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="navlinks">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="container">
+                <div class="hero-pic">
+                    <img src="images/Untitled.png" alt="profile pic">
+                </div>
+                <div class="hero-text">
+                    <h5>Hi I'm <span class="input">J.R Penetration Tester</span></h5>
+                    <h1>Touaj Hasan</h1>
+                    <p>Cybersecurity-enthusiast with a passion for securing digital landscapes, I specialize in vulnerability assessment, ethical hacking, and penetration testing. Skilled in identifying and mitigating risks, I enjoy digging deep into systems to strengthen security. Continuously honing my knowledge, I stay up-to-date with the latest security trends and tools, ensuring every assessment is thorough and effective.</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn active">Download CV</a>
+                        <a href="#" class="btn">Contact</a>
+                    </div>
+                    <div class="social">
+                        <a href="https://www.facebook.com/mdtouajhasan.shounto/"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/in/touajhasan/"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://medium.com/@touajhasan.pentester"><i class="fa-brands fa-medium"></i></a>
+                        <a href="https://x.com/TouaHasan"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="TOUAJHASAN.PENTESTER@GMAIL.COM"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="skills.html">Skills</a></li>
-                </ul>
-            </nav>
         </div>
-    </header>
-
-    <!-- Home Section -->
-    <section id="home" class="home">
-        <div class="home-content">
-            <div class="text-container">
-                <h1>Hello, I'm <span class="highlight">Touaj Hasan</span></h1>
-                <p>Welcome to my portfolio website.</p>
-                <p>I'm a <span class="dynamic-text" id="job-title">JR. Penetration Tester</span></p>
-                <a href="portfolio.html" class="btn">View My Work</a>
-            </div>
-            <div class="image-container">
-                <img src="profile.jpg" alt="Profile Picture">
-            </div>
-        </div>
-    </section>
-
-    <div id="butterfly-container"></div>
-
-    <footer>
-        <p>&copy; 2024 Touaj Hasan. All rights reserved.</p>
-    </footer>
-
+    </div>
+    <!-- JavaScript for typing effect and toggle button -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
     <script>
-        const titles = [
-            "JR. Penetration Tester",
-            "Fontent Developer",
-            "Cybersecurity Enthusiast",
-            "Bug Hunter",
-            "Software Engineer",
-            "CTF Player"
-        ];
+        // Toggle button to show/hide navbar
+        var togglebtn = document.querySelector(".togglebtn");
+        var nav = document.querySelector(".navlinks");
 
-        const colors = [
-            "#f06595",
-            "#ffcc00",
-            "#00ccff",
-            "#cc00ff",
-            "#00ff00"
-        ];
-    
-        let currentIndex = 0;
-        const jobTitleElement = document.getElementById("job-title");
+        togglebtn.addEventListener("click", function() {
+            this.classList.toggle("click");
+            nav.classList.toggle("open");
+        });
 
-        function changeTitle() {
-            jobTitleElement.style.transition = "opacity 0.5s, color 0.5s"; // Transition for both
-            jobTitleElement.style.opacity = 0; // Fade out
-            setTimeout(() => {
-                currentIndex = (currentIndex + 1) % titles.length; // Move to the next title
-                jobTitleElement.textContent = titles[currentIndex]; // Change text
-                jobTitleElement.style.color = colors[currentIndex]; // Change color
-                jobTitleElement.style.opacity = 1; // Fade in
-            }, 500); // Wait for fade out to complete
-        }
-
-        setInterval(changeTitle, 3000); // Change title every 3 seconds
-
-
-         // Function to create a butterfly element
-         function createButterfly(x, y) {
-            const butterfly = document.createElement('div');
-            butterfly.className = 'butterfly';
-            butterfly.style.left = `${x}px`;
-            butterfly.style.top = `${y}px`;
-            butterfly.style.animation = 'colorChange 2s infinite'; // Add color change animation
-            document.getElementById('butterfly-container').appendChild(butterfly);
-
-            // Animate the butterfly away
-            setTimeout(() => {
-                const randomX = (Math.random() - 0.5) * window.innerWidth; // Random x position
-                const randomY = (Math.random() - 1) * window.innerHeight; // Random y position
-                butterfly.style.transform = `translate(${randomX}px, ${randomY}px)`; // Move away
-                butterfly.style.opacity = '0'; // Fade out
-            }, 100);
-
-            // Remove the butterfly after animation
-            setTimeout(() => {
-                butterfly.remove();
-            }, 2000); // Match this duration to the animation duration
-        }
-
-        // Mouse move event
-        document.addEventListener('mousemove', (event) => {
-            createButterfly(event.clientX, event.clientY);
+        // Typing effect
+        var typed = new Typed(".input", {
+            strings: ["Web Developer", "Penetration Tester", "Security Analyst"],
+            typeSpeed: 50,
+            backSpeed: 60,
+            loop: true
         });
     </script>
 </body>
